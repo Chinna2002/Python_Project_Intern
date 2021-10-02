@@ -61,7 +61,7 @@ def send_messages():
                 left_time = calculate_sleeptime(j[0], j[1])
                 if left_time < 0:
                     print("Message cannot be sended")
-                    break
+                    continue
                 print("Sending msg for ", j[3], 'after ', left_time, 'seconds')
                 time.sleep(left_time)
                 if j[2] == 'Saved':
