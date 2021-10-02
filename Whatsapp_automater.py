@@ -14,16 +14,15 @@ def take_input():
     n = int(input("Enter number of people you want to send : "))
     for i in range(n):
         date = input("Enter Date(YYYY-MM-DD): ")
-        for j in range(1):
-            L = []
-            L.append(int(input("Enter Hour in 24 hour format :")))
-            L.append(int(input("Enter Minute:")))
-            L.append(input("Enter Contact Type Saved/New :"))
-            if L[-1] == 'Saved':
-                L.append(input("Enter contact name : "))
-            else:
-                L.append(input("Enter contact number with + and country code : "))
-            L.append(input_message())
+        L = []
+        L.append(int(input("Enter Hour in 24 hour format :")))
+        L.append(int(input("Enter Minute:")))
+        L.append(input("Enter Contact Type Saved/New :"))
+        if L[-1] == 'Saved':
+            L.append(input("Enter contact name : "))
+        else:
+            L.append(input("Enter contact number with + and country code : "))
+        L.append(input_message())
         events[date].append(L)
 '''
 we use this input_message method to take multiple or single lines of message input from the user
@@ -52,7 +51,7 @@ we use this send_messages method to start sending msgs on a particular day
 
 def send_messages():
     global driver
-    driver = webdriver.Edge("C:\\Users\\kpbch\\Downloads\\edgedriver_win64\\msedgedriver.exe")
+    driver = webdriver.Edge("C:\\Users\\kpbch\\Downloads\\edgedriver_win32\\msedgedriver.exe")
     driver.implicitly_wait(15)
     for i in events:
         if i == date_today:
